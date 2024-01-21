@@ -20,7 +20,7 @@ import { IoStar, IoExtensionPuzzle, IoMedal, IoBookmarks } from 'react-icons/io5
 
 import { CONTRIBUTORS_LINK, GITHUB_LINK } from '../../config/constants'
 import { TextUnderline } from '../TextUnderline'
-import { Stargazers } from '../../services/stargazers'
+// import { Stargazers } from '../../services/stargazers'
 
 export interface Contributor {
   login: string
@@ -32,23 +32,23 @@ export interface Contributor {
 
 export type OpenSourceProps = {
   contributors: Contributor[]
-  stargazers: Stargazers
+  // stargazers: Stargazers
   categoriesCount: number
   templatesCount?: number
 }
 
 export const OpenSource = ({
   contributors,
-  stargazers,
+  // stargazers,
   categoriesCount,
   templatesCount,
 }: OpenSourceProps) => {
   const STATS = [
-    {
-      icon: IoStar,
-      label: 'GitHub Stars',
-      count: stargazers.totalCount,
-    },
+    // {
+    //   icon: IoStar,
+    //   label: 'GitHub Stars',
+    //   count: stargazers.totalCount,
+    // },
     {
       icon: IoExtensionPuzzle,
       label: 'Templates',

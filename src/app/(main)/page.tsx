@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 
-import { fetchStargazers } from '#/services/stargazers'
+// import { fetchStargazers } from '#/services/stargazers'
 
 import { data } from '#/data'
 
@@ -17,20 +17,20 @@ const fetchHome = async () => {
   const contributorsRcPath = path.resolve('.all-contributorsrc')
   const { contributors } = JSON.parse(fs.readFileSync(contributorsRcPath, 'utf-8'))
 
-  // Get stargazers from GitHub API
-  const stargazers = await fetchStargazers()
+  // // Get stargazers from GitHub API
+  // const stargazers = await fetchStargazers()
 
   // Counts
   const templatesCount = getTemplatesCount(data)
   const categoriesCount = getCategoriesCount(data)
 
-  return { contributors, stargazers, categoriesCount, templatesCount }
+  return { contributors, categoriesCount, templatesCount }
 }
 
 export const revalidate = 3600
 
 const Home = async () => {
-  const { stargazers, contributors, categoriesCount, templatesCount } = await fetchHome()
+  const { contributors, categoriesCount, templatesCount } = await fetchHome()
 
   return (
     <>
@@ -38,7 +38,7 @@ const Home = async () => {
       <GettingStarted />
       <OpenSource
         contributors={contributors}
-        stargazers={stargazers}
+        // stargazers={stargazers}
         categoriesCount={categoriesCount}
         templatesCount={templatesCount}
       />
